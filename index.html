@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Level Shooting Ball Tournament 2026 | Nandakhal Youth Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #F5C518;
+    --gold-dark: #C9A227;
+    --gold-light: #FFE066;
+    --navy: #0A1128;
+    --navy-mid: #0D1A3A;
+    --navy-light: #142252;
+    --red: #C0392B;
+    --red-light: #E74C3C;
+    --white: #FFFFFF;
+    --off-white: #F0EDE6;
+    --green: #1A7A2E;
+    --orange: #E8711A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ====== PARTICLES / STARS BG ====== */
+  #particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0;
+    animation: twinkle var(--dur) var(--delay) infinite ease-in-out;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: var(--op); transform: scale(1); }
+  }
+
+  /* ====== HERO ====== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px 60px;
+    background: radial-gradient(ellipse at 50% 30%, #1A2E6B 0%, #0A1128 60%);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-lights {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+  }
+  .hero-lights::before, .hero-lights::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    width: 3px;
+    height: 70%;
+    background: linear-gradient(to bottom, rgba(245,197,24,0.6), transparent);
+    filter: blur(2px);
+    animation: lightSway 4s ease-in-out infinite alternate;
+  }
+  .hero-lights::before { left: 18%; transform: rotate(-12deg); }
+  .hero-lights::after { right: 18%; transform: rotate(12deg); animation-delay: 1s; }
+  @keyframes lightSway {
+    from { opacity: 0.4; }
+    to { opacity: 0.9; }
+  }
+
+  .hero-glow {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 200px;
+    background: radial-gradient(ellipse, rgba(245,197,24,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo-wrap {
+    position: relative;
+    width: 140px; height: 140px;
+    margin-bottom: 20px;
+    animation: logoFloat 3s ease-in-out infinite;
+  }
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .logo-wrap img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(245,197,24,0.5));
+  }
+
+  .org-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  h1.hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(52px, 9vw, 100px);
+    line-height: 0.95;
+    color: var(--white);
+    text-shadow: 0 0 40px rgba(245,197,24,0.3);
+    animation: fadeUp 0.8s 0.2s ease both;
+    letter-spacing: 2px;
+  }
+  h1.hero-title span {
+    display: block;
+    color: var(--gold);
+    text-shadow: 0 0 60px rgba(245,197,24,0.5), 0 4px 0 rgba(0,0,0,0.5);
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+    color: var(--off-white);
+    margin: 16px 0 8px;
+    font-style: italic;
+    font-weight: 500;
+    opacity: 0.9;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    letter-spacing: 3px;
+    padding: 8px 30px;
+    border-radius: 4px;
+    margin-top: 20px;
+    box-shadow: 0 0 40px rgba(245,197,24,0.5);
+    animation: fadeUp 0.8s 0.6s ease both, pulse 2s 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 30px rgba(245,197,24,0.4); }
+    50% { box-shadow: 0 0 60px rgba(245,197,24,0.8); }
+  }
+
+  .hero-venue {
+    margin-top: 16px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    animation: fadeUp 0.8s 0.8s ease both;
+  }
+  .hero-venue strong { color: var(--gold); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+    animation: bounce 2s infinite;
+  }
+  .scroll-hint::after {
+    content: '▼';
+    font-size: 16px;
+    color: var(--gold);
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ====== GOLD DIVIDER ====== */
+  .gold-divider {
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ====== SECTIONS ====== */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 70px 20px;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 40px;
+  }
+  .section-title span { color: var(--gold); }
+
+  /* ====== VENUE ====== */
+  #venue {
+    background: var(--navy-mid);
+  }
+
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .venue-card {
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 12px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .venue-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--orange));
+  }
+
+  .venue-icon {
+    width: 56px; height: 56px;
+    background: rgba(245,197,24,0.1);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .venue-card h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .venue-card p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  .venue-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .venue-map-link:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245,197,24,0.3);
+  }
+
+  .countdown-box {
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 12px;
+    padding: 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .countdown-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--gold));
+  }
+
+  .countdown-box h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .countdown-unit {
+    background: rgba(245,197,24,0.08);
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 8px;
+    padding: 16px 8px;
+  }
+
+  .countdown-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .countdown-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ====== PRIZES ====== */
+  #prizes {
+    background: linear-gradient(180deg, var(--navy) 0%, #0B1535 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #prizes::before {
+    content: '🏆';
+    position: absolute;
+    font-size: 300px;
+    opacity: 0.03;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .prize-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .prize-card {
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .prize-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .prize-card.rank-1 {
+    background: linear-gradient(135deg, #7B5A00, #C9A227, #F5C518);
+    grid-column: span 2;
+    box-shadow: 0 0 60px rgba(245,197,24,0.3);
+  }
+  .prize-card.rank-2 {
+    background: linear-gradient(135deg, #3a3a3a, #8a8a8a, #c0c0c0);
+    box-shadow: 0 0 30px rgba(192,192,192,0.2);
+  }
+  .prize-card.rank-3 {
+    background: linear-gradient(135deg, #7B3A00, #C97A27, #CD7F32);
+    box-shadow: 0 0 30px rgba(205,127,50,0.2);
+  }
+  .prize-card.rank-other {
+    background: linear-gradient(135deg, var(--navy-light), #1A2A5A);
+    border: 1px solid rgba(245,197,24,0.15);
+  }
+
+  .prize-rank {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 52px;
+    line-height: 1;
+    color: rgba(0,0,0,0.25);
+    display: block;
+    position: absolute;
+    top: 8px; right: 16px;
+  }
+  .prize-card.rank-other .prize-rank { color: rgba(255,255,255,0.06); }
+
+  .prize-place {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: rgba(0,0,0,0.6);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .prize-card.rank-other .prize-place { color: rgba(255,255,255,0.6); }
+
+  .prize-amount {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    color: rgba(0,0,0,0.85);
+    line-height: 1;
+    display: block;
+  }
+  .prize-card.rank-1 .prize-amount { font-size: 56px; }
+  .prize-card.rank-other .prize-amount { color: var(--gold); }
+
+  .prize-rupee {
+    font-size: 0.6em;
+    vertical-align: super;
+  }
+
+  /* ====== TEAMS ====== */
+  #teams {
+    background: var(--navy-mid);
+  }
+
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .team-card {
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border: 1px solid rgba(245,197,24,0.15);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: all 0.3s;
+    animation: fadeUp 0.6s ease both;
+  }
+  .team-card:hover {
+    border-color: var(--gold);
+    transform: translateX(6px);
+    background: linear-gradient(135deg, #1D2F6A, var(--navy));
+    box-shadow: -4px 0 0 var(--gold), 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  .team-number {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 36px;
+    color: rgba(245,197,24,0.2);
+    width: 40px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .team-info h4 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .team-info span {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .team-flag {
+    margin-left: auto;
+    font-size: 28px;
+  }
+
+  /* ====== CONTACTS ====== */
+  #contact {
+    background: linear-gradient(180deg, #0B1535, var(--navy));
+    text-align: center;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .contact-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 10px;
+    padding: 24px;
+    transition: all 0.3s;
+  }
+  .contact-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(245,197,24,0.1);
+  }
+
+  .contact-card h4 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .contact-card a {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .contact-card a:hover { color: var(--gold); }
+
+  /* ====== ASSOCIATION ====== */
+  .assoc-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    font-family: 'Tiro Devanagari Hindi', serif;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: #050A1A;
+    border-top: 3px solid var(--gold);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-logo {
+    width: 70px;
+    margin: 0 auto 12px;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(245,197,24,0.3));
+  }
+
+  .footer-org {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ====== NAV ====== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    background: rgba(10,17,40,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(245,197,24,0.15);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+  }
+  nav.visible { transform: translateY(0); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo img { width: 36px; }
+  .nav-logo span {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 600;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ====== BANNER STRIP ====== */
+  .ticker-wrap {
+    background: var(--gold);
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  .ticker-track {
+    display: flex;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-track span {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 16px;
+    letter-spacing: 4px;
+    color: var(--navy);
+    padding: 0 40px;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .venue-grid { grid-template-columns: 1fr; }
+    .prize-grid { grid-template-columns: repeat(2, 1fr); }
+    .prize-card.rank-1 { grid-column: span 2; }
+    .teams-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .countdown-grid { grid-template-columns: repeat(4, 1fr); }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .teams-grid { grid-template-columns: 1fr; }
+    .prize-grid { grid-template-columns: 1fr 1fr; }
+    .countdown-num { font-size: 36px; }
+  }
+
+  /* ====== REVEAL ANIMATION ====== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <img src="preview.webp" alt="Logo" onerror="this.style.display='none'">
+    <span>Nandakhal Youth Foundation</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#venue">Venue</a></li>
+    <li><a href="#prizes">Prizes</a></li>
+    <li><a href="#teams">Teams</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-lights"></div>
+  <div class="hero-glow"></div>
+
+  <div class="logo-wrap">
+    <img src="preview.webp" alt="Nandakhal Youth Foundation Logo">
+  </div>
+
+  <div class="org-name">Nandakhal Youth Foundation</div>
+  <h1 class="hero-title">
+    National Level<br>
+    <span>Shooting Ball</span>
+    Tournament
+  </h1>
+  <p class="hero-tagline">The wait is over! India's biggest shooting ball event is here.</p>
+  <div class="hero-date-badge">
+    <span>📅</span>
+    9th May 2026
+  </div>
+  <p class="hero-venue">📍 <strong>Late Shri. Manvel Correia Ground</strong> — Virar (West)</p>
+
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>⭐ National Level Shooting Ball Tournament 2026</span>
+    <span>⭐ 9th May 2026 · Virar West</span>
+    <span>⭐ Prize Pool: ₹75,500</span>
+    <span>⭐ 6 States Competing</span>
+    <span>⭐ Play · Lead · Inspire</span>
+    <span>⭐ National Level Shooting Ball Tournament 2026</span>
+    <span>⭐ 9th May 2026 · Virar West</span>
+    <span>⭐ Prize Pool: ₹75,500</span>
+    <span>⭐ 6 States Competing</span>
+    <span>⭐ Play · Lead · Inspire</span>
+  </div>
+</div>
+
+<!-- VENUE -->
+<section id="venue">
+  <div class="section-inner">
+    <span class="section-label">Official Announcement</span>
+    <h2 class="section-title">Venue & <span>Date</span></h2>
+
+    <div class="venue-grid reveal">
+      <div class="venue-card">
+        <div class="venue-icon">📍</div>
+        <h3>Venue</h3>
+        <p>
+          Late Shri. Manvel Correia Ground,<br>
+          Opposite to Rumao Ali,<br>
+          <strong style="color:var(--gold); font-size:20px;">Virar (West)</strong>
+        </p>
+        <a class="venue-map-link" href="https://maps.google.com/?q=Virar+West+Maharashtra" target="_blank">
+          📌 Get Directions
+        </a>
+      </div>
+
+      <div class="countdown-box">
+        <h3>⏱ COUNTDOWN TO KICKOFF</h3>
+        <div class="countdown-grid">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="mins">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="secs">00</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+        <p style="margin-top:24px; font-size:14px; color:rgba(255,255,255,0.5); letter-spacing:2px;">9 MAY 2026 · VIRAR WEST</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- PRIZES -->
+<section id="prizes">
+  <div class="section-inner">
+    <span class="section-label">Prize Distribution</span>
+    <h2 class="section-title">Win Big — <span>₹75,500</span> Total Pool</h2>
+
+    <div class="prize-grid reveal">
+      <div class="prize-card rank-1">
+        <span class="prize-rank">1</span>
+        <span class="prize-place">🥇 1st Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>21,500</span>
+      </div>
+
+      <div class="prize-card rank-2">
+        <span class="prize-rank">2</span>
+        <span class="prize-place">🥈 2nd Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>15,500</span>
+      </div>
+
+      <div class="prize-card rank-3">
+        <span class="prize-rank">3</span>
+        <span class="prize-place">🥉 3rd Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>9,500</span>
+      </div>
+
+      <div class="prize-card rank-other">
+        <span class="prize-rank">4</span>
+        <span class="prize-place">4th Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>9,500</span>
+      </div>
+
+      <div class="prize-card rank-other">
+        <span class="prize-rank">5</span>
+        <span class="prize-place">5th Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>5,500</span>
+      </div>
+
+      <div class="prize-card rank-other">
+        <span class="prize-rank">6</span>
+        <span class="prize-place">6th Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>5,500</span>
+      </div>
+
+      <div class="prize-card rank-other">
+        <span class="prize-rank">7</span>
+        <span class="prize-place">7th Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>4,500</span>
+      </div>
+
+      <div class="prize-card rank-other">
+        <span class="prize-rank">8</span>
+        <span class="prize-place">8th Place</span>
+        <span class="prize-amount"><span class="prize-rupee">₹</span>4,500</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- TEAMS -->
+<section id="teams">
+  <div class="section-inner">
+    <span class="section-label">Competing Teams</span>
+    <h2 class="section-title">The <span>Challengers</span></h2>
+
+    <div class="teams-grid">
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">01</span>
+        <div class="team-info">
+          <h4>Waquer</h4>
+          <span>Malegaon</span>
+        </div>
+        <span class="team-flag">🏅</span>
+      </div>
+      <div class="team-card reveal" style="animation-delay:0.2s">
+        <span class="team-number">02</span>
+        <div class="team-info">
+          <h4>Istiyak</h4>
+          <span>Malegaon</span>
+        </div>
+        <span class="team-flag">🏅</span>
+      </div>
+      <div class="team-card reveal" style="animation-delay:0.3s">
+        <span class="team-number">03</span>
+        <div class="team-info">
+          <h4>Punjab</h4>
+          <span>Punjab State</span>
+        </div>
+        <span class="team-flag">🏅</span>
+      </div>
+      <div class="team-card reveal" style="animation-delay:0.4s">
+        <span class="team-number">04</span>
+        <div class="team-info">
+          <h4>Jamner</h4>
+          <span>Maharashtra</span>
+        </div>
+        <span class="team-flag">🏅</span>
+      </div>
+      <div class="team-card reveal" style="animation-delay:0.5s">
+        <span class="team-number">05</span>
+        <div class="team-info">
+          <h4>Uttar Pradesh</h4>
+          <span>UP State</span>
+        </div>
+        <span class="team-flag">🏅</span>
+      </div>
+      <div class="team-card reveal" style="animation-delay:0.6s">
+        <span class="team-number">06</span>
+        <div class="team-info">
+          <h4>Madhya Pradesh</h4>
+          <span>MP State</span>
+        </div>
+        <span class="team-flag">🏅</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <span class="section-label">Get in Touch</span>
+    <h2 class="section-title">Contact <span>Organizers</span></h2>
+
+    <div class="contact-grid reveal">
+      <div class="contact-card">
+        <h4>Richard Correia</h4>
+        <a href="tel:9653366306">9653 366 306</a>
+      </div>
+      <div class="contact-card">
+        <h4>Lewis Dmello</h4>
+        <a href="tel:9967918791">9967 918 791</a>
+      </div>
+      <div class="contact-card">
+        <h4>Leroy Dmello</h4>
+        <a href="tel:9049741841">9049 741 841</a>
+      </div>
+      <div class="contact-card">
+        <h4>Daryll Rumao</h4>
+        <a href="tel:7262962220">7262 962 220</a>
+      </div>
+    </div>
+
+    <p class="assoc-text">
+      हौशी शूटिंग बॉल स्पोर्ट असोसिएशन (महाराष्ट्र) व<br>
+      पालघर जिल्हा शूटिंगबॉल असो. यांच्या मान्यतेने
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img class="footer-logo" src="preview.webp" alt="Nandakhal Youth Foundation">
+  <div class="footer-org">Nandakhal Youth Foundation</div>
+  <div class="footer-tagline">Play · Lead · Inspire</div>
+</footer>
+
+<script>
+  // ====== PARTICLES ======
+  const pContainer = document.getElementById('particles');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 3 + 1;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      --dur:${2 + Math.random()*4}s;
+      --delay:${Math.random()*4}s;
+      --op:${0.2 + Math.random()*0.6};
+    `;
+    pContainer.appendChild(s);
+  }
+
+  // ====== NAV SCROLL ======
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 80) nav.classList.add('visible');
+    else nav.classList.remove('visible');
+  });
+
+  // ====== COUNTDOWN ======
+  function updateCountdown() {
+    const target = new Date('2026-05-09T06:00:00+05:30');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('mins').textContent = '00';
+      document.getElementById('secs').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('secs').textContent = String(s).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ====== REVEAL ON SCROLL ======
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
