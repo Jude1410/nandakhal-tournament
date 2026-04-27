@@ -711,6 +711,44 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+
+
+  /* Styling for the container that holds the photo */
+.team-flag.photo-holder {
+  /* This ensures the image container is a perfect circle */
+  border-radius: 50%;
+  
+  /* Overrides any default text-based padding that was in .team-flag */
+  padding: 0 !important; 
+  
+  /* Hides any photo content that overflows the circular boundary */
+  overflow: hidden; 
+  
+  /* Sets a clean border around the photo */
+  border: 5px solid #f5c518; 
+  
+  /* Important: use flexbox to align the image perfectly in the center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+      filter: drop-shadow(0 0 10px rgba(245, 197, 24, 0.3));
+          max-width: 50%;
+}
+
+/* Specific styling for the image itself inside the container */
+.team-flag.photo-holder img {
+  /* This prevents the photo from being larger than its circular container */
+  max-width: 100%;
+  max-height: 100%;
+  
+  /* This ensures the image fills the container without distorting its aspect ratio.
+     This is critical. If your image isn't a perfect square, 'cover' will crop it 
+     circularly from the center. */
+  object-fit: cover; 
+}
+
+
 </style>
 </head>
 <body>
@@ -932,54 +970,159 @@
     <h2 class="section-title">The <span>Challengers</span></h2>
 
     <div class="teams-grid">
+
       <div class="team-card reveal" style="animation-delay:0.1s">
         <span class="team-number">01</span>
         <div class="team-info">
-          <h4>Waquer</h4>
-          <span>Malegaon</span>
+          <h4>Arun Kumar</h4>
+          <span>Ekrar</span>
         </div>
-        <span class="team-flag">🏅</span>
+        <span class="team-flag photo-holder">
+          <img src="ekrar.png" />
+        </span>
       </div>
-      <div class="team-card reveal" style="animation-delay:0.2s">
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
         <span class="team-number">02</span>
+        <div class="team-info">
+          <h4>Mittal</h4>
+          <span>Ilu</span>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="elu.png" />
+        </span>
+      </div>
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">03</span>
+        <div class="team-info">
+          <h4>Shoheb Sabir</h4>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="sabari.png" />
+        </span>
+      </div>
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">04</span>
+        <div class="team-info">
+          <h4>Vakar</h4>
+          <span>Aamir</span>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="amir vakar.png" />
+        </span>
+      </div>
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">05</span>
+        <div class="team-info">
+          <h4>Khali</h4>
+          <span>Punjab</span>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="khali panjab.png" />
+        </span>
+      </div>
+      
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">06</span>
+        <div class="team-info">
+          <h4>Suresh</h4>
+          <span>Haryana</span>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="sureah hariyana.png" />
+        </span>
+      </div>
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">07</span>
         <div class="team-info">
           <h4>Istiyak</h4>
           <span>Malegaon</span>
         </div>
-        <span class="team-flag">🏅</span>
+        <span class="team-flag photo-holder">
+          <img src="istiyak malegoan.png" />
+        </span>
       </div>
-      <div class="team-card reveal" style="animation-delay:0.3s">
-        <span class="team-number">03</span>
+
+       <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">08</span>
         <div class="team-info">
-          <h4>Punjab</h4>
-          <span>Punjab State</span>
+          <h4>Arman</h4>
+          <span>Punjab</span>
         </div>
-        <span class="team-flag">🏅</span>
+        <span class="team-flag photo-holder">
+          <img src="arman panjab.png" />
+        </span>
       </div>
-      <div class="team-card reveal" style="animation-delay:0.4s">
-        <span class="team-number">04</span>
+
+       <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">09</span>
         <div class="team-info">
-          <h4>Jamner</h4>
-          <span>Maharashtra</span>
+          <h4>Amir</h4>
+          <span>Kazi</span>
         </div>
-        <span class="team-flag">🏅</span>
+        <span class="team-flag photo-holder">
+          <img src="amir kaji.png" />
+        </span>
       </div>
-      <div class="team-card reveal" style="animation-delay:0.5s">
-        <span class="team-number">05</span>
+
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">10</span>
         <div class="team-info">
-          <h4>Uttar Pradesh</h4>
-          <span>UP State</span>
+          <h4>Manerajuri</h4>
         </div>
-        <span class="team-flag">🏅</span>
+        <span class="team-flag photo-holder">
+          <img src="maneraguri.png" />
+        </span>
       </div>
-      <div class="team-card reveal" style="animation-delay:0.6s">
-        <span class="team-number">06</span>
+
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">11</span>
         <div class="team-info">
-          <h4>Madhya Pradesh</h4>
-          <span>MP State</span>
+          <h4>Tembhurni</h4>
         </div>
-        <span class="team-flag">🏅</span>
+        <span class="team-flag photo-holder">
+          <img src="tembhurni.png" />
+        </span>
       </div>
+
+      <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">12</span>
+        <div class="team-info">
+          <h4>Mumbai</h4>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="mumbai.png" />
+        </span>
+      </div>
+
+       <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">13</span>
+        <div class="team-info">
+          <h4>Raigad</h4>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="raigad.png" />
+        </span>
+      </div>
+
+
+       <div class="team-card reveal" style="animation-delay:0.1s">
+        <span class="team-number">14</span>
+        <div class="team-info">
+          <h4>Khijar</h4>
+          <span>Bhaiyyu</span>
+        </div>
+        <span class="team-flag photo-holder">
+          <img src="khijar bhayour.png" />
+        </span>
+      </div>
+     
     </div>
   </div>
 </section>
